@@ -1,0 +1,38 @@
+{
+  "name": "@gridonic/cli",
+  "version": "0.1.0",
+  "description": "Our command line interface.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "bin": {
+    "gridonic": "./src/index.js"
+  },
+  "author": "Gridonic <hello@gridonic.ch>",
+  "license": "MIT",
+  "dependencies": {
+    "import-cwd": "^2.1.0",
+    "meow": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "jest": "^24.1.0"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gridonic/cli.git"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "bugs": {
+    "url": "https://github.com/gridonic/cli/issues"
+  },
+  "homepage": "https://github.com/gridonic/cli#readme"
+}
