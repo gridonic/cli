@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "import-cwd": "^2.1.0",
+    "import-global": "^0.1.0",
     "meow": "^5.0.0"
   },
   "engines": {
