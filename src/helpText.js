@@ -2,16 +2,13 @@
 const chalk = require('chalk');
 
 const brand = require('./brand');
-const listCommands = require('./listCommands');
-const listModules = require('./listModules');
+const printUsage = require('./printUsage');
 
-module.exports = modules => chalk`${brand}
+module.exports = apps => chalk`${brand}
 {blue Usage}
-  {gray $} gridonic <command> <args>
+  {gray $} gridonic <app command> [args] [flags]
 
-{blue Commands}
-${listCommands(modules)}
+{blue Apps}
 
-
-${listModules(modules)}
+${apps.map(printUsage).join('\n\n')}
 `;

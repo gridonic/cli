@@ -4,28 +4,21 @@
 const meow = require('meow');
 
 const helpText = require('./helpText');
-const hasCommand = require('./hasCommand');
-const runCommand = require('./runCommand');
-const supportedModules = require('./supportedModules');
+const apps = require('./apps');
 
 // Get meow object
-const cli = meow(
-    helpText(supportedModules), {
+const cli = meow(helpText(apps.supported), {
         description: false,
-        flags: {}
+        flags: apps.flags
     }
 );
 
 // Retrieve command and arguments for the command
 const [command, ...args] = cli.input;
 
-// Find a module that supports the requested command
-const targetModule = supportedModules.find(module => hasCommand(module, command));
-
-// Unknown command. Print help.
-if (targetModule === undefined) {
-    return console.log(cli.help);
+try {
+    apps.run(command, args, cli.flags);
+} catch (e) {
+    console.log(cli.help)
 }
-
-runCommand(targetModule, command, args);
 
