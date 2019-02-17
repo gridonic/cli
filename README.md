@@ -5,9 +5,9 @@
 
 <br>
 
-## Installtion
+## Installation
 
-It’s adviced to install it globally. Just run `$ npm install --global @gridonic/cli`.
+It’s advised to install it globally. Just run `$ npm install --global @gridonic/cli`.
 
 <br>
 
