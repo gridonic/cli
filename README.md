@@ -1,6 +1,8 @@
-![webpack](https://gridonic.github.io/assets/images/logos/gridonic.svg)
+<p align="center">
+  <img width="240" src="https://gridonic.github.io/assets/images/logos/gridonic.svg"><br>
+  This is your Captain speaking, welcome to our command line interface.
+</p>
 
-This is your Captain speaking, welcome to our command line interface.
 <br>
 
 ## Installtion
