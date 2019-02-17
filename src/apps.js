@@ -4,9 +4,6 @@ const importCwd = require('import-cwd');
 // @see https://github.com/sindresorhus/import-global
 const importGlobal = require('import-global');
 
-const brand = require('./brand');
-
-
 // Apps supported by our CLI
 const supported = [
 
@@ -58,7 +55,10 @@ const run = (command, args = [], flags = {}) => {
         throw new Error(`${command} is unknown.`);
     }
 
-    console.log(brand);
+    // Always print Gridonic CLI before running any app
+    console.log(
+        require('./brand')
+    );
 
     app.commands[command].fn(args, flags);
 };
