@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const firstColumn = 24;
 
 // Helper function to format apps consistently during console output
-module.exports = ({ name, version, global, commands, flags }) => {
+module.exports = ({ name, version, global, commands, flags, status }) => {
     let location;
 
     if (global === true) {
@@ -15,8 +15,8 @@ module.exports = ({ name, version, global, commands, flags }) => {
     }
 
     // If version is null it means the app was not found
-    if (version === null) {
-        return chalk`  {red.bold ${name}} {gray not found}`;
+    if (status !== null) {
+        return chalk`  {red.bold ${name}} {gray ${status}}`;
     }
 
     // Print app details

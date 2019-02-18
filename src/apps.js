@@ -4,30 +4,53 @@ const importCwd = require('import-cwd');
 // @see https://github.com/sindresorhus/import-global
 const importGlobal = require('import-global');
 
+// @see https://github.com/npm/node-semver
+const semver = require('semver');
+
 // Apps supported by our CLI
-const supported = [
+const supported = Object.entries({
 
     // @see https://github.com/gridonic/webpack
-    '@gridonic/webpack',
+    '@gridonic/webpack': '>=0.4.0',
 
     // @see https://github.com/gridonic/generator
-    '@gridonic/generator',
+    '@gridonic/generator': '>=0.1.0',
 
-].map((module) => {
+}).map(([module, version]) => {
+    const blank = {
+        name: module,
+        version: null,
+        commands: {},
+        flags: {},
+        status: null,
+        global: false
+    };
+
     const local = importCwd.silent(module);
     const global = importGlobal.silent(module);
+    const imported = local || global;
 
-    if (local === null && global === null) {
+    // Module was not found locally or globally
+    if (imported === false) {
         return {
-            name: module,
-            version: null,
-            commands: {},
-            flags: {}
-        }
+            ...blank,
+            status: 'not found'
+        };
+    }
+
+    const { cli } = imported;
+
+    // Module was found but is version is not supported by our CLI
+    if (semver.satisfies(cli.version, version) === false) {
+        return {
+            ...blank,
+            status: `not supported, expected ${version} but found ${cli.version}`
+        };
     }
 
     return {
-        ...(local || global).cli,
+        ...blank,
+        ...cli,
         global: global !== null
     };
 });
