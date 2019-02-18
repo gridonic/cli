@@ -45,14 +45,16 @@ const flags = ((apps) => {
     return result;
 })(supported);
 
+const findByCommand = command => supported.find(
+    search => Object.keys(search.commands).find(key => key === command) !== undefined
+);
+
 // Tries to run command by one of our supported apps
 const run = (command, args = [], flags = {}) => {
-    const app = supported.find(
-        search => Object.keys(search.commands).find(key => key === command) !== undefined
-    );
+    const app = findByCommand(command);
 
     if (app === undefined) {
-        throw new Error(`${command} is unknown.`);
+        return;
     }
 
     // Always print Gridonic CLI before running any app
@@ -64,6 +66,7 @@ const run = (command, args = [], flags = {}) => {
 };
 
 module.exports = {
+    findByCommand,
     supported,
     flags,
     run

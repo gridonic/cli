@@ -4,21 +4,20 @@
 const meow = require('meow');
 
 const helpText = require('./helpText');
-const apps = require('./apps');
+const { supported, flags, findByCommand, run } = require('./apps');
 
 // Get meow object
-const cli = meow(helpText(apps.supported), {
+const cli = meow(helpText(supported), {
         description: false,
-        flags: apps.flags
+        flags
     }
 );
 
 // Retrieve command and arguments for the command
 const [command, ...args] = cli.input;
 
-try {
-    apps.run(command, args, cli.flags);
-} catch (e) {
-    console.log(cli.help)
+if (findByCommand(command) === undefined) {
+    return console.log(cli.help);
 }
 
+run(command, args, cli.flags);
