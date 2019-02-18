@@ -31,7 +31,7 @@ const supported = Object.entries({
     const imported = local || global;
 
     // Module was not found locally or globally
-    if (imported === false) {
+    if (imported === null) {
         const status = 'not found';
 
         return { ...blank, status };
