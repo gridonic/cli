@@ -7,6 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <br>
 
 ## 0.1.0
-###### 2019-02-18
+###### 2019-02-22
 
 First version ready for internal testing.
