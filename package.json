@@ -1,6 +1,6 @@
 {
   "name": "@gridonic/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Our command line interface.",
   "main": "src/index.js",
   "scripts": {

@@ -30,9 +30,9 @@ const supported = Object.entries({
     const global = importGlobal.silent(module);
     const imported = local || global;
 
-    // Module was not found locally or globally
+    // Module was not installed locally or globally
     if (imported === null) {
-        const status = 'not found';
+        const status = 'not installed';
 
         return { ...blank, status };
     }
@@ -41,12 +41,14 @@ const supported = Object.entries({
 
     // Module was found but is version is not supported by our CLI
     if (semver.satisfies(cli.version, version) === false) {
-        let status = 'not supported';
+        let status = `not supported, expected ${version} but found `;
 
         // Given app was supported once since it’s returning a version.
         // Support has expired though.
         if (cli.version !== null) {
-            status += `expected ${version} but found ${cli.version}`;
+            status += cli.version;
+        } else {
+            status += 'very old version';
         }
 
         return { ...blank, status };
