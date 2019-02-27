@@ -12,7 +12,6 @@
   "author": "Gridonic <hello@gridonic.ch>",
   "license": "MIT",
   "dependencies": {
-    "@gridonic/generator": "^0.1.0",
     "import-cwd": "^2.1.0",
     "import-global": "^0.1.0",
     "meow": "^5.0.0",
