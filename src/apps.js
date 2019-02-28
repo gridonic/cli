@@ -57,7 +57,7 @@ const supported = Object.entries({
     return {
         ...blank,
         ...cli,
-        global: global !== null
+        global: local === null
     };
 });
 
