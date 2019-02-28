@@ -1,6 +1,6 @@
 {
   "name": "@gridonic/cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Our command line interface.",
   "main": "src/index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   "author": "Gridonic <hello@gridonic.ch>",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^2.4.2",
     "import-cwd": "^2.1.0",
     "import-global": "^0.1.0",
     "meow": "^5.0.0",
