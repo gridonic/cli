@@ -6,7 +6,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <br>
 
+Looking for [unreleased] changes?
+
+<br>
+
+## [0.1.1]
+###### 2019-02-28
+
+###### Fixed
+
+- *Global* status overriding local one
+
+###### Changed
+
+- Improved status messages
+- Removed `@gridonic/generator` from dependencies as it should be installed separately
+
+
 ## 0.1.0
 ###### 2019-02-22
 
 First version ready for internal testing.
+
+[unreleased]: https://github.com/gridonic/cli/compare/0.1.1...HEAD
+[0.1.1]: https://github.com/gridonic/cli/compare/0.1.0...0.1.1
