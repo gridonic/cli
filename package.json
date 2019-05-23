@@ -16,7 +16,7 @@
     "import-cwd": "^2.1.0",
     "import-global": "^0.1.0",
     "meow": "^5.0.0",
-    "semver": "^5.6.0"
+    "semver": "^6.1.0"
   },
   "engines": {
     "node": ">=10"
