@@ -1,11 +1,38 @@
-// @see https://github.com/sindresorhus/import-cwd
-const importCwd = require('import-cwd');
-
-// @see https://github.com/sindresorhus/import-global
-const importGlobal = require('import-global');
-
 // @see https://github.com/npm/node-semver
 const semver = require('semver');
+
+// @see https://github.com/sindresorhus/global-dirs
+const globalDirs = require('global-dirs');
+
+// @see https://github.com/sindresorhus/is-path-inside
+const isPathInside = require('is-path-inside');
+
+// Tries to import a given module from the current working directory,
+// or fallback to the global scope.
+const importLocalOrGlobal = (module) => {
+    try {
+        const resolved = require.resolve(module, {
+            paths: [
+                process.cwd(),
+                globalDirs.npm.packages
+            ]
+        });
+
+        return {
+            imported: require(resolved),
+            isGlobal: isPathInside(resolved, process.cwd()) === false
+        };
+    } catch (e) {
+        if (e.code === 'MODULE_NOT_FOUND') {
+            return {
+                imported: null,
+                isGlobal: true
+            };
+        }
+
+        throw e;
+    }
+};
 
 // Apps supported by our CLI
 const supported = Object.entries({
@@ -23,12 +50,10 @@ const supported = Object.entries({
         commands: {},
         flags: {},
         status: null,
-        global: false
+        isGlobal: false
     };
 
-    const local = importCwd.silent(module);
-    const global = importGlobal.silent(module);
-    const imported = local || global;
+    const { imported, isGlobal } = importLocalOrGlobal(module);
 
     // Module was not installed locally or globally
     if (imported === null) {
@@ -57,7 +82,7 @@ const supported = Object.entries({
     return {
         ...blank,
         ...cli,
-        global: local === null
+        isGlobal
     };
 });
 

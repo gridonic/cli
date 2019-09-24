@@ -5,10 +5,10 @@ const chalk = require('chalk');
 const firstColumn = 24;
 
 // Helper function to format apps consistently during console output
-module.exports = ({ name, version, global, commands, flags, status }) => {
+module.exports = ({ name, version, isGlobal, commands, flags, status }) => {
     let location;
 
-    if (global === true) {
+    if (isGlobal === true) {
         location = chalk`{yellow global}`;
     } else {
         location = chalk`{gray local}`;
