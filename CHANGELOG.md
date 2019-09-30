@@ -10,6 +10,14 @@ Looking for [unreleased] changes?
 
 <br>
 
+## [0.1.3]
+###### 2019-09-30
+
+###### Fixed
+
+- Do not supress errors from requiring apps
+
+
 ## [0.1.2]
 ###### 2019-02-28
 
@@ -36,6 +44,7 @@ Looking for [unreleased] changes?
 
 First version ready for internal testing.
 
-[unreleased]: https://github.com/gridonic/cli/compare/0.1.2...HEAD
+[unreleased]: https://github.com/gridonic/cli/compare/0.1.3...HEAD
+[0.1.3]: https://github.com/gridonic/cli/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/gridonic/cli/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/gridonic/cli/compare/0.1.0...0.1.1
