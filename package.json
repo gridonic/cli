@@ -14,7 +14,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "global-dirs": "^2.0.0",
-    "is-path-inside": "^3.0.1",
+    "is-path-inside": "^3.0.2",
     "meow": "^5.0.0",
     "semver": "^5.6.0"
   },
@@ -22,7 +22,7 @@
     "node": ">=10"
   },
   "devDependencies": {
-    "jest": "^24.1.0"
+    "jest": "^24.9.0"
   },
   "directories": {
     "test": "tests"
