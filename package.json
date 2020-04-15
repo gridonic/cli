@@ -16,7 +16,7 @@
     "global-dirs": "^2.0.0",
     "is-path-inside": "^3.0.2",
     "meow": "^5.0.0",
-    "semver": "^6.3.0"
+    "semver": "^7.3.2"
   },
   "engines": {
     "node": ">=10"
