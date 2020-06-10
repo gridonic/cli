@@ -12,7 +12,7 @@
   "author": "Gridonic <hello@gridonic.ch>",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "^4.1.0",
     "global-dirs": "^2.0.0",
     "is-path-inside": "^3.0.2",
     "meow": "^5.0.0",
